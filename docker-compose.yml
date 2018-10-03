@@ -1,0 +1,12 @@
+version: '2.3'
+services:
+  couchdb:
+    container_name: couchdb
+    hostname: couchdb.local
+    image: apache/couchdb:${DOCKER_TAG:-latest}
+    environment:
+      COUCHDB_ADMIN_USER: admin
+      COUCHDB_ADMIN_PASS: secret
+    volumes: [ '~/data:/opt/couchdb/data' ]
+    ports:
+    - "5984:5984"
